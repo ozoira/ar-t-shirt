@@ -2,34 +2,30 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Markerless AR</title>
+    <title>AR with Hiro Marker</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- A-Frame -->
     <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
 
-    <!-- AR.js с поддержкой markerless -->
-    <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js/aframe/build/aframe-ar-nft.js"></script>
+    <!-- AR.js -->
+    <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js/aframe/build/aframe-ar.js"></script>
   </head>
 
   <body style="margin: 0; overflow: hidden;">
-    <!-- A-Frame сцена -->
-    <a-scene
-      embedded
-      vr-mode-ui="enabled: false"
-      renderer="logarithmicDepthBuffer: true;"
-      arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;"
-    >
-      <!-- Модель появится перед камерой -->
-      <a-entity
-        gltf-model="assets/teapot.glb"
-        scale="0.5 0.5 0.5"
-        position="0 0 -2"
-      ></a-entity>
+    <a-scene embedded arjs>
+      <!-- Hiro маркер -->
+      <a-marker preset="hiro">
+        <!-- 3D-модель -->
+        <a-entity
+          gltf-model="assets/teapot.glb"
+          scale="0.5 0.5 0.5"
+          position="0 0 0"
+        ></a-entity>
+      </a-marker>
 
       <!-- Камера -->
       <a-entity camera></a-entity>
     </a-scene>
   </body>
 </html>
-
